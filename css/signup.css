@@ -1,0 +1,132 @@
+#container{
+	width:100%;
+	height:auto;
+    background-color: #f8f8f8;
+}
+#register-hdr{
+	text-align: center;
+    display: table;
+    margin: 80px auto 30px auto;
+    color: #222;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 36px;
+    font-weight: 200;
+}
+#signup-main-div{
+	height:auto;
+	width:57%;
+	margin:0 auto 80px auto;
+    background-color: white;
+    box-shadow: 3px 3px 0 rgba(0,0,0,0.04);
+    border: 1px solid #e1e1e1;
+}
+#signup-upper-div{
+	display: flex;
+	flex-wrap: nowrap;
+}
+#signup-form-div{
+	width: 50%;
+	height: auto;
+}
+#social-signup-div{
+	width: 50%;
+	height: auto;
+	border-left: 1px solid #e1e1e1;
+}
+#signup-footer-div{
+	width: 100%;
+	height:50px;
+	border-top: 1px solid #e1e1e1;
+	display: flex;
+	justify-content: center;
+}
+#signup-footer-div h6{
+	margin:15px auto auto auto;
+	font-size: 13px;
+}
+#signup-footer-div a{
+	color:black;
+}
+form{
+	padding-top: 20px;
+	font-weight: 700;
+    font-size: 14px;
+    color: #222;
+}
+.attr-margin{
+	margin-left: 35px;
+    margin-top: 13px;
+    margin-bottom: 20px;
+}
+#fullname{
+	width:80%;
+	margin-bottom: 20px;
+	height:40px;
+	border: 1px solid #e1e1e1;
+}
+#email{
+	width:80%;
+	margin-bottom: 20px;
+	height:40px;
+	border: 1px solid #e1e1e1;
+}
+#Password{
+	width:80%;
+	height:40px;
+	border: 1px solid #e1e1e1;
+}
+#Repeat-Password{
+	width:80%;
+	height:40px;
+	border: 1px solid #e1e1e1;
+}
+#login-btn{
+	margin:20px 0 50px 35px;
+	width:100px;
+	height:40px;
+	background-color: #20b555;
+	border-radius: 5px;
+	color: white;
+	padding-left: 8px;
+}
+input[type="submit"]{
+	margin-left: 0
+}
+input[type="submit"]:hover {
+    background: #4954ac;
+}
+input[type="checkbox"]{
+	margin-left: 35px;
+}
+input:hover{
+	padding-left: 10px;
+}
+#social-signup-div p{
+	text-align: center;
+	margin-top: 30px;
+}
+#social-signup-div a{
+	text-decoration: none;
+}
+.social-logins{
+	width:90%;
+	height:40px;
+	margin:20px auto 10px auto;
+	background-color:#4267b2;
+	border-radius: 3px;
+	display: flex;
+	align-items:center;
+	color:white;
+	word-wrap: nowrap;
+}
+.social-logins:hover{
+	opacity: 0.6;
+}
+#social-signup-div .fa{
+	color:white;
+	margin-left:5%;
+	margin-right:20%;
+}
+.signup-footer{
+	background-color: white !important;
+}
