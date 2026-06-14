@@ -584,8 +584,12 @@ if (toggle && box && input && results) {
     results.innerHTML = '';
   }
 
-  /* search on input */
-  input.addEventListener('input', () => renderResults(input.value.trim()));
+  /* search on input — debounced 150ms so rapid typing doesn't thrash the DOM */
+  let _searchTimer;
+  input.addEventListener('input', () => {
+    clearTimeout(_searchTimer);
+    _searchTimer = setTimeout(() => renderResults(input.value.trim()), 150);
+  });
 
   /* Enter key → go to products page */
   input.addEventListener('keydown', (e) => {

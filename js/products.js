@@ -1,25 +1,29 @@
 /* ===== HEALTH FAUCET PAGINATION ===== */
 let currentPage = 1;
+const hfCards   = document.querySelectorAll('[data-hf-page]');
+const hfBtns    = document.querySelectorAll('.page-btn');
 
 function showPage(page) {
   currentPage = page;
-  document.querySelectorAll('[data-hf-page]').forEach(card => {
+  hfCards.forEach(card => {
     card.style.display = parseInt(card.dataset.hfPage) === page ? '' : 'none';
   });
-  document.querySelectorAll('.page-btn').forEach(btn => {
+  hfBtns.forEach(btn => {
     btn.classList.toggle('active', parseInt(btn.dataset.page) === page);
   });
 }
 
 /* ===== TAP PAGINATION ===== */
 let currentTapPage = 1;
+const tapCards     = document.querySelectorAll('[data-tap-page]');
+const tapBtns      = document.querySelectorAll('.page-btn-tap');
 
 function showTapPage(page) {
   currentTapPage = page;
-  document.querySelectorAll('[data-tap-page]').forEach(card => {
+  tapCards.forEach(card => {
     card.style.display = parseInt(card.dataset.tapPage) === page ? '' : 'none';
   });
-  document.querySelectorAll('.page-btn-tap').forEach(btn => {
+  tapBtns.forEach(btn => {
     btn.classList.toggle('active', parseInt(btn.dataset.page) === page);
   });
 }
@@ -48,7 +52,7 @@ tabs.forEach(tab => {
 });
 
 // Bind HF pagination buttons
-document.querySelectorAll('.page-btn').forEach(btn => {
+hfBtns.forEach(btn => {
   btn.addEventListener('click', () => {
     showPage(parseInt(btn.dataset.page));
     const section = document.getElementById('health-faucets');
@@ -60,7 +64,7 @@ document.querySelectorAll('.page-btn').forEach(btn => {
 });
 
 // Bind tap pagination buttons
-document.querySelectorAll('.page-btn-tap').forEach(btn => {
+tapBtns.forEach(btn => {
   btn.addEventListener('click', () => {
     showTapPage(parseInt(btn.dataset.page));
     const section = document.getElementById('taps');
