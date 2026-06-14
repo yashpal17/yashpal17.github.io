@@ -1,0 +1,8 @@
+.DS_Store
+images/*.png
+images/*.jpg
+images/Hf pics/
+images/Screenshot*
+images/*.xlsx
+images/logo_reference.png
+images/logo_zoomed.png
