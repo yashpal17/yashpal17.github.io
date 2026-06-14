@@ -1,0 +1,379 @@
+/* ============================================================
+   CONTACT PAGE — Ambav
+   ============================================================ */
+
+/* ── CONTACT LAYOUT ── */
+.contact-section {
+  background: var(--ivory);
+  padding: var(--sec-v) 0;
+}
+
+.contact-inner {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 80px;
+  align-items: start;
+}
+
+/* ── FORM ── */
+.contact-form-wrap h2 {
+  font-family: var(--font-display);
+  font-size: 2.25rem;
+  font-weight: 400;
+  color: var(--ink);
+  margin-bottom: 8px;
+  letter-spacing: -0.01em;
+}
+
+.contact-form-wrap > p {
+  font-size: 0.9375rem;
+  font-weight: 300;
+  color: var(--ash);
+  margin-bottom: 40px;
+  line-height: 1.65;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.required { color: var(--gold); }
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 14px 16px;
+  background: var(--white);
+  border: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--ink);
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  font-weight: 300;
+  color: var(--ink);
+  outline: none;
+  border-radius: 0;
+  appearance: none;
+  -webkit-appearance: none;
+  transition: border-color var(--t-fast), box-shadow var(--t-fast);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: var(--pearl);
+  font-weight: 300;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-bottom-color: var(--gold);
+  box-shadow: 0 1px 0 0 var(--gold);
+}
+
+.form-group input.error,
+.form-group select.error,
+.form-group textarea.error {
+  border-bottom-color: #c0392b;
+  box-shadow: 0 1px 0 0 #c0392b;
+}
+
+.form-group select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23767676' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  padding-right: 44px;
+  cursor: pointer;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 140px;
+}
+
+.error-msg {
+  font-size: 0.8125rem;
+  font-weight: 300;
+  color: #c0392b;
+  min-height: 18px;
+}
+
+/* Checkbox group */
+.checkbox-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 8px 0;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.checkbox-label input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  padding: 0;
+  accent-color: var(--gold);
+  cursor: pointer;
+  border: none;
+  box-shadow: none;
+}
+
+/* Submit row */
+.form-submit-row {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.form-note {
+  font-size: 0.8125rem;
+  font-weight: 300;
+  color: var(--ash);
+}
+
+/* Success */
+.form-success {
+  display: none;
+  align-items: center;
+  gap: 12px;
+  background: #f0faf4;
+  border: 1px solid #a3cfb4;
+  padding: 16px 20px;
+  font-size: 0.9375rem;
+  font-weight: 400;
+  color: #1a6636;
+}
+
+.form-success.visible { display: flex; }
+
+.form-success-icon {
+  width: 28px; height: 28px;
+  background: #1a6636;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  flex-shrink: 0;
+}
+
+/* ── CONTACT INFO ── */
+.contact-info-col {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  background: var(--border-light);
+  border: 1px solid var(--border-light);
+}
+
+.info-card {
+  background: var(--white);
+  padding: 36px;
+}
+
+.info-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 24px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.info-item {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.info-item:last-child { margin-bottom: 0; }
+
+.info-item-icon {
+  width: 36px; height: 36px;
+  border: 1px solid var(--border-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.875rem;
+  flex-shrink: 0;
+  color: var(--gold);
+  margin-top: 2px;
+}
+
+.info-item strong {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+
+.info-item p, .info-item a {
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: var(--ash);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.info-item a:hover { color: var(--gold); }
+
+/* Regional offices */
+.offices-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.office-item strong {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+
+.office-item p {
+  font-size: 0.8125rem;
+  font-weight: 300;
+  color: var(--ash);
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* Dealer card */
+.dealer-card {
+  background: var(--ocean);
+  padding: 36px;
+}
+
+.dealer-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.375rem;
+  font-weight: 500;
+  color: var(--ivory);
+  margin-bottom: 12px;
+}
+
+.dealer-card p {
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: var(--text-dark-muted);
+  margin-bottom: 24px;
+  line-height: 1.65;
+}
+
+/* ── MAP ── */
+.map-section {
+  background: var(--cream);
+  padding: 0;
+}
+
+.map-wrap {
+  background: var(--pearl);
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 12px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.map-wrap::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #d6eaf8 0%, #aed6f1 100%);
+}
+
+.map-pin-group {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.map-pin { font-size: 3rem; }
+
+.map-pin-group strong {
+  font-family: var(--font-display);
+  font-size: 1.375rem;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.map-pin-group p {
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: var(--ash);
+  max-width: 320px;
+}
+
+.map-pin-group a {
+  font-size: 0.8125rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold);
+  border-bottom: 1px solid var(--gold);
+  padding-bottom: 2px;
+  margin-top: 8px;
+  transition: color var(--t-fast);
+}
+
+.map-pin-group a:hover { color: var(--gold-dark); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1024px) {
+  .contact-inner { grid-template-columns: 1fr; gap: 56px; }
+  .contact-info-col { display: grid; grid-template-columns: 1fr 1fr; }
+  .dealer-card { grid-column: span 2; }
+}
+
+@media (max-width: 768px) {
+  .form-row { grid-template-columns: 1fr; }
+  .contact-info-col { grid-template-columns: 1fr; }
+  .dealer-card { grid-column: span 1; }
+  .offices-grid { grid-template-columns: 1fr; }
+}
