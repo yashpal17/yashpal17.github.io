@@ -41,18 +41,6 @@ window.addEventListener('scroll', () => {
   progressBar.style.width = (docHeight > 0 ? (window.scrollY / docHeight) * 100 : 0) + '%';
 }, { passive: true });
 
-/* ── SCROLL-TO-TOP ── */
-const scrollBtn = document.createElement('button');
-scrollBtn.className = 'scroll-top';
-scrollBtn.innerHTML = '&#8679;';
-scrollBtn.setAttribute('aria-label', 'Back to top');
-document.body.appendChild(scrollBtn);
-
-window.addEventListener('scroll', () => {
-  scrollBtn.classList.toggle('visible', window.scrollY > 500);
-}, { passive: true });
-
-scrollBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
 /* ── SCROLL REVEAL ── */
 const revealObserver = new IntersectionObserver((entries) => {

@@ -54,6 +54,7 @@ form.addEventListener('submit', async (e) => {
   const btn = form.querySelector('button[type="submit"]');
   btn.disabled = true;
   btn.textContent = 'Sending…';
+  btn.setAttribute('data-sending', 'true');
 
   try {
     const data     = new FormData(form);
@@ -74,8 +75,43 @@ form.addEventListener('submit', async (e) => {
     alert('Network error. Please check your connection and try again.');
   } finally {
     btn.disabled = false;
-    btn.innerHTML = 'Send Message &#10148;';
+    btn.removeAttribute('data-sending');
+    btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:10px;vertical-align:-3px"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>Send Message';
   }
+});
+
+/* ===== RESPONSE TIME BY ENQUIRY TYPE ===== */
+const enquirySelect = document.getElementById('enquiry');
+const responseNote  = document.getElementById('response-note');
+const responseMap   = {
+  'quote':    'Quote requests — we respond within 4 business hours.',
+  'bulk':     'Bulk / B2B orders — we respond within 4 business hours.',
+  'dealer':   'Dealer applications — we respond within 1 business day.',
+  'support':  'Product support — we respond within 1 business day.',
+  'warranty': 'Warranty claims — we respond within 48 hours.',
+  'other':    'We respond within one business day.',
+  '':         'We respond within one business day.'
+};
+if (enquirySelect && responseNote) {
+  enquirySelect.addEventListener('change', () => {
+    responseNote.textContent = responseMap[enquirySelect.value] || responseMap[''];
+  });
+}
+
+/* ===== FAQ ACCORDION ===== */
+document.querySelectorAll('.faq-q').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item     = btn.closest('.faq-item');
+    const isOpen   = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(el => {
+      el.classList.remove('open');
+      el.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+    });
+    if (!isOpen) {
+      item.classList.add('open');
+      btn.setAttribute('aria-expanded', 'true');
+    }
+  });
 });
 
 /* ===== FLOATING LABEL EFFECT ===== */

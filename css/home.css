@@ -533,8 +533,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: var(--font-display);
-  font-size: 0.875rem;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
   font-weight: 600;
   color: var(--gold);
   letter-spacing: 0.04em;
@@ -542,7 +542,7 @@
 }
 
 .phil-cert-card h4 {
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-size: 1rem;
   font-weight: 500;
   color: var(--ivory);
@@ -665,8 +665,8 @@
 
 .bestsellers-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
 }
 
 @media (max-width: 1024px) {
