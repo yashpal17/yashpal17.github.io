@@ -821,3 +821,25 @@
   .dealer-card { grid-column: span 1; }
   .offices-grid { grid-template-columns: 1fr; }
 }
+
+@media (max-width: 480px) {
+  /* Call bar stacks vertically */
+  .call-bar-inner { flex-direction: column; align-items: flex-start; gap: 16px; }
+  .call-bar-btn { width: 100%; justify-content: center; }
+
+  /* Contact info card — tighter padding on small screens */
+  .info-card-header { padding: 24px 20px 20px; }
+  .info-row { padding: 16px 20px; }
+  .info-card-body { padding: 4px 0; }
+
+  /* Map address bar stacks */
+  .map-address-bar { flex-direction: column; align-items: flex-start; padding: 20px 20px; gap: 12px; }
+  .map-directions-btn { width: 100%; justify-content: center; }
+
+  /* FAQ tighter padding */
+  .faq-q { padding: 16px 18px; font-size: 0.875rem; }
+  .faq-item.open .faq-a { padding: 0 18px 16px; }
+
+  /* Form wrap tighter */
+  .contact-form-wrap { padding: 28px 20px; }
+}

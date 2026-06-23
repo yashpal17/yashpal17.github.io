@@ -1234,7 +1234,9 @@ input, textarea, select { font-family: inherit; }
 
 @media (max-width: 640px) {
   .amazon-strip-center { display: none; }
-  .strip-mkt-btn { font-size: 0.625rem; padding: 3px 9px; }
+  .amazon-strip-left { display: none; }
+  .strip-mkt-btn { font-size: 0.75rem; padding: 6px 14px; }
+  .amazon-strip-inner { justify-content: center; }
 }
 
 /* ── AMAZON BUTTON ── */
