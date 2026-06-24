@@ -42,6 +42,23 @@
 .filter-tab:hover { color: var(--ink); }
 .filter-tab.active { color: var(--ink); border-bottom-color: var(--gold); font-weight: 500; }
 
+/* ── PRODUCT COUNT ── */
+.filter-count {
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  color: var(--ash);
+  white-space: nowrap;
+  padding-right: 4px;
+  flex-shrink: 0;
+  transition: color 0.2s;
+}
+
+.filter-count--filtered {
+  color: var(--gold);
+  font-weight: 500;
+}
+
 /* ── PRODUCTS LAYOUT ── */
 .products-section {
   background: var(--ivory);

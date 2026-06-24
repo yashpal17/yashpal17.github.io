@@ -29,8 +29,23 @@ function showTapPage(page) {
 }
 
 /* ===== PRODUCT FILTER TABS ===== */
-const tabs = document.querySelectorAll('.filter-tab');
-const cats = document.querySelectorAll('.product-category');
+const tabs        = document.querySelectorAll('.filter-tab');
+const cats        = document.querySelectorAll('.product-category');
+const countEl     = document.getElementById('product-count');
+const allCards    = document.querySelectorAll('.product-card');
+const totalCount  = allCards.length;
+
+function updateCount(filter) {
+  if (!countEl) return;
+  if (filter === 'all') {
+    countEl.textContent = totalCount + ' products';
+    countEl.classList.remove('filter-count--filtered');
+  } else {
+    const visible = document.querySelectorAll(`.product-card[data-category="${filter}"]`).length;
+    countEl.textContent = 'Showing ' + visible + ' of ' + totalCount + ' products';
+    countEl.classList.add('filter-count--filtered');
+  }
+}
 
 tabs.forEach(tab => {
   tab.addEventListener('click', () => {
@@ -41,6 +56,8 @@ tabs.forEach(tab => {
     cats.forEach(cat => {
       cat.style.display = (filter === 'all' || cat.id === filter) ? '' : 'none';
     });
+
+    updateCount(filter);
 
     if (filter === 'all' || filter === 'health-faucets') {
       showPage(1);
