@@ -318,6 +318,14 @@
   gap: 8px;
 }
 
+@media (hover: hover) {
+  .prod-footer-actions { display: none; }
+}
+
+@media (hover: none) {
+  .prod-hover-overlay { display: none; }
+}
+
 .prod-footer-actions .btn {
   flex: 1;
   justify-content: center;
