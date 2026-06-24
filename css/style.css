@@ -45,9 +45,10 @@ input, textarea, select { font-family: inherit; }
   --pearl:     #aed6f1;
 
   /* Light palette */
-  --ivory:     #f0f6fc;
-  --cream:     #f7fbff;
-  --white:     #ffffff;
+  --ivory:      #f0f6fc;
+  --cream:      #f7fbff;
+  --warm-white: #faf9f7;
+  --white:      #ffffff;
 
   /* Accent — teal/cyan replaces gold */
   --gold:       #0097a7;

@@ -148,6 +148,32 @@
 }
 .product-card.hidden { display: none; }
 
+/* ── HOVER CTA OVERLAY ── */
+.prod-hover-overlay {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  background: linear-gradient(to top, rgba(10,35,66,0.92) 0%, rgba(10,35,66,0.7) 60%, transparent 100%);
+  padding: 24px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transform: translateY(100%);
+  transition: transform 0.3s cubic-bezier(0.16,1,0.3,1);
+  z-index: 3;
+}
+
+.product-card:hover .prod-hover-overlay {
+  transform: translateY(0);
+}
+
+.prod-hover-overlay .btn {
+  width: 100%;
+  justify-content: center;
+  font-size: 0.75rem;
+  padding: 11px 12px;
+  letter-spacing: 0.08em;
+}
+
 /* Product visual */
 .prod-visual {
   height: 280px;
