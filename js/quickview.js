@@ -18,7 +18,7 @@
     document.getElementById('qv-img').alt   = img  ? img.alt  : '';
     document.getElementById('qv-cat').textContent  = cat  ? cat.textContent  : '';
     document.getElementById('qv-name').textContent = name ? name.textContent : '';
-    document.getElementById('qv-desc').textContent = desc ? desc.textContent : '';
+    document.getElementById('qv-desc').textContent = card.dataset.description || (desc ? desc.textContent : '');
 
     document.getElementById('qv-price-current').textContent = current ? current.textContent : '';
     document.getElementById('qv-price-mrp').textContent     = mrp     ? mrp.textContent     : '';
