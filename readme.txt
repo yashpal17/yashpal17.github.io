@@ -1,12 +1,12 @@
 AMBAV — Product Catalogue
 =========================
-Total: 50 Products
+Total: 57 Products
 Website: https://yashpal17.github.io/
-Last updated: 2026-06-14
+Last updated: 2026-06-30
 
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-HEALTH FAUCETS  (37 products)
+HEALTH FAUCETS  (36 products)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
  1. ABS Jack Health Faucet — Chrome Finish | Without Shower Tube & Hook        		[Chrome Finish]
@@ -39,16 +39,12 @@ HEALTH FAUCETS  (37 products)
 28. OHM Health Faucet — With Braided 1.0m Hose Pipe & Hook  				[Chrome Finish]
 29. OHM Health Faucet — Chrome Finish | Without Shower Tube & Hook  			[Chrome Finish]
 30. OHM Health Faucet — Without Shower Tube & Hook | Set of 1  				[Chrome Finish]
-
 31. Perry Health Faucet — With Braided 1.0m Hose Pipe & Hook  				[Chrome Finish]
-
 32. Photon Health Faucet — With 1.0m Flexible Hose Pipe | Chrome Finish  		[Chrome Finish]
 33. Photon White Health Faucet — With PVC 1.0m Hose Pipe & Hook | White Colour 		[White Finish]
-
 34. Solo Nozzle Health Faucet — With Braided 1.0m Hose Pipe & Hook | Set of 1  		[Chrome Finish]
 35. Solo Nozzle Health Faucet — Chrome Finish | Without Hose | Silicon Nozzles  	[Chrome Finish]
 36. Square Health Faucet — With Braided 1.0m Hose Pipe & Hook  				[Chrome Finish]
-37. Square Health Faucet — Without Shower Tube & Hook | Set of 1  			[Chrome Finish]
 
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -78,8 +74,27 @@ Classic Series:
 
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-BATHROOM ACCESSORIES  (2 products)
+BATHROOM ACCESSORIES  (10 products)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
  1. Plastic 3-in-1 Multipurpose Bathroom Shelf — Soap Case + Tumbler Holder + Toothbrush Holder
  2. Plastic 4-in-1 Multipurpose Bathroom Shelf — Soap Case + Tumbler Holder + Toothbrush Holder
+ 3. Classic Plastic Hook — Single Hook for Bathroom & Kitchen
+ 4. Oval Plastic Hook — Single Hook for Bathroom & Kitchen
+ 5. Round Plastic Hook — Single Hook for Bathroom & Kitchen
+ 6. Perry Nozzle — Replacement Nozzle (No Hose)
+ 7. PVC Hose Pipe — 1.0m
+ 8. PVC Hose Pipe — 1.5m
+ 9. SS Braided Hose Pipe — 1.0m
+10. SS Braided Hose Pipe — 1.5m
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+NOTES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+- Logo: images/ProductImages/AmbavLogo/AmbavLogo.png (transparent background)
+- Catalogue PDF: website/catalogue.pdf (pre-generated via generate-catalogue.js)
+- To regenerate PDF after catalogue changes: node generate-catalogue.js
+- Logo image processing: Python PIL used to remove white background and recolour
+  TM + "drop of trust" text to white for dark background visibility

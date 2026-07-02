@@ -20,7 +20,6 @@ form.addEventListener('submit', async (e) => {
   const name    = form.name.value.trim();
   const phone   = form.phone.value.trim();
   const email   = form.email.value.trim();
-  const message = form.message.value.trim();
   let valid = true;
 
   if (!name) {
@@ -44,11 +43,6 @@ form.addEventListener('submit', async (e) => {
     valid = false;
   }
 
-  if (!message) {
-    showError('message', 'Please write a message.');
-    valid = false;
-  }
-
   if (!valid) return;
 
   const btn = form.querySelector('button[type="submit"]');
@@ -69,7 +63,7 @@ form.addEventListener('submit', async (e) => {
       success.classList.add('visible');
       setTimeout(() => success.classList.remove('visible'), 6000);
     } else {
-      alert('Something went wrong. Please try again or email us directly at yashpal17sharma@gmail.com');
+      alert('Something went wrong. Please try again or email us directly at info@ambav.in');
     }
   } catch {
     alert('Network error. Please check your connection and try again.');

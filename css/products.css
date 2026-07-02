@@ -2,6 +2,42 @@
    PRODUCTS PAGE — Ambav
    ============================================================ */
 
+/* ── DOWNLOAD CATALOGUE BUTTON ── */
+.hero-cta-row {
+  margin-top: 28px;
+}
+
+.btn-catalogue {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 13px 28px;
+  background: transparent;
+  color: var(--gold);
+  border: 1.5px solid var(--gold);
+  border-radius: 2px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+
+.btn-catalogue:hover {
+  background: var(--gold);
+  color: var(--white);
+}
+
+.btn-catalogue svg {
+  flex-shrink: 0;
+  transition: transform 0.2s;
+}
+
+.btn-catalogue:hover svg {
+  transform: translateY(2px);
+}
+
 /* ── FILTER BAR ── */
 .filter-bar {
   background: var(--white);
@@ -433,7 +469,7 @@
 .qv-img-pane img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .qv-info-pane {

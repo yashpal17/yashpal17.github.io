@@ -1,128 +1,96 @@
-/* ===== HEALTH FAUCET PAGINATION ===== */
-let currentPage = 1;
-const hfCards   = document.querySelectorAll('[data-hf-page]');
-const hfBtns    = document.querySelectorAll('.page-btn');
+/* ===== AMBAV — PRODUCTS PAGE ===== */
 
-function showPage(page) {
-  currentPage = page;
-  hfCards.forEach(card => {
-    card.style.display = parseInt(card.dataset.hfPage) === page ? '' : 'none';
-  });
-  hfBtns.forEach(btn => {
-    btn.classList.toggle('active', parseInt(btn.dataset.page) === page);
-  });
-}
+/*
+ * Section registry — the only place to touch when adding a paginated category.
+ */
+const SECTIONS = [
+  { category: 'health-faucets', paginationId: 'hf-pagination', perPage: 6 },
+  { category: 'taps',           paginationId: 'tap-pagination', perPage: 6 },
+  { category: 'accessories',    paginationId: 'acc-pagination', perPage: 6 },
+];
 
-/* ===== TAP PAGINATION ===== */
-let currentTapPage = 1;
-const tapCards     = document.querySelectorAll('[data-tap-page]');
-const tapBtns      = document.querySelectorAll('.page-btn-tap');
+/* Resolve DOM references and page state once at startup */
+SECTIONS.forEach(s => {
+  s.cards = Array.from(document.querySelectorAll(`.product-card[data-category="${s.category}"]`));
+  s.pagEl = document.getElementById(s.paginationId);
+  s.current = 1;
+});
 
-function showTapPage(page) {
-  currentTapPage = page;
-  tapCards.forEach(card => {
-    card.style.display = parseInt(card.dataset.tapPage) === page ? '' : 'none';
-  });
-  tapBtns.forEach(btn => {
-    btn.classList.toggle('active', parseInt(btn.dataset.page) === page);
-  });
-}
+/* ===== PAGINATION ===== */
+function buildPagination(section) {
+  const { cards, perPage, pagEl, category } = section;
+  pagEl.innerHTML = '';
+  const pageCount = Math.ceil(cards.length / perPage);
+  if (pageCount <= 1) return;
 
-/* ===== PRODUCT FILTER TABS ===== */
-const tabs        = document.querySelectorAll('.filter-tab');
-const cats        = document.querySelectorAll('.product-category');
-const countEl     = document.getElementById('product-count');
-const allCards    = document.querySelectorAll('.product-card');
-const totalCount  = allCards.length;
-
-function updateCount(filter) {
-  if (!countEl) return;
-  if (filter === 'all') {
-    countEl.textContent = totalCount + ' products';
-    countEl.classList.remove('filter-count--filtered');
-  } else {
-    const visible = document.querySelectorAll(`.product-card[data-category="${filter}"]`).length;
-    countEl.textContent = 'Showing ' + visible + ' of ' + totalCount + ' products';
-    countEl.classList.add('filter-count--filtered');
+  for (let i = 1; i <= pageCount; i++) {
+    const btn = document.createElement('button');
+    btn.className    = 'page-btn page-link' + (i === 1 ? ' active' : '');
+    btn.dataset.page = String(i);
+    btn.textContent  = i;
+    btn.addEventListener('click', () => {
+      showPage(section, i);
+      const sectionEl = document.getElementById(category);
+      if (sectionEl) {
+        window.scrollTo({ top: sectionEl.getBoundingClientRect().top + window.scrollY - 120, behavior: 'smooth' });
+      }
+    });
+    pagEl.appendChild(btn);
   }
 }
 
+function showPage(section, page) {
+  const { cards, perPage, pagEl } = section;
+  section.current = page;
+  const start = (page - 1) * perPage;
+  const end   = start + perPage;
+  cards.forEach((card, i) => {
+    card.style.display = (i >= start && i < end) ? '' : 'none';
+  });
+  pagEl.querySelectorAll('button').forEach(btn => {
+    btn.classList.toggle('active', parseInt(btn.dataset.page) === page);
+  });
+}
+
+function resetAll() {
+  SECTIONS.forEach(s => showPage(s, 1));
+}
+
+SECTIONS.forEach(buildPagination);
+
+/* ===== FILTER TABS ===== */
+const tabs = document.querySelectorAll('.filter-tab');
+const cats = document.querySelectorAll('.product-category');
+
+function applyFilter(filter) {
+  tabs.forEach(t => t.classList.toggle('active', t.dataset.filter === filter));
+  cats.forEach(cat => {
+    cat.style.display = (filter === 'all' || cat.id === filter) ? '' : 'none';
+  });
+  resetAll();
+}
+
 tabs.forEach(tab => {
-  tab.addEventListener('click', () => {
-    tabs.forEach(t => t.classList.remove('active'));
-    tab.classList.add('active');
-
-    const filter = tab.dataset.filter;
-    cats.forEach(cat => {
-      cat.style.display = (filter === 'all' || cat.id === filter) ? '' : 'none';
-    });
-
-    updateCount(filter);
-
-    if (filter === 'all' || filter === 'health-faucets') {
-      showPage(1);
-    }
-    if (filter === 'all' || filter === 'taps') {
-      showTapPage(1);
-    }
-  });
-});
-
-// Bind HF pagination buttons
-hfBtns.forEach(btn => {
-  btn.addEventListener('click', () => {
-    showPage(parseInt(btn.dataset.page));
-    const section = document.getElementById('health-faucets');
-    if (section) {
-      const offset = section.getBoundingClientRect().top + window.scrollY - 120;
-      window.scrollTo({ top: offset, behavior: 'smooth' });
-    }
-  });
-});
-
-// Bind tap pagination buttons
-tapBtns.forEach(btn => {
-  btn.addEventListener('click', () => {
-    showTapPage(parseInt(btn.dataset.page));
-    const section = document.getElementById('taps');
-    if (section) {
-      const offset = section.getBoundingClientRect().top + window.scrollY - 120;
-      window.scrollTo({ top: offset, behavior: 'smooth' });
-    }
-  });
+  tab.addEventListener('click', () => applyFilter(tab.dataset.filter));
 });
 
 /* ===== HIGHLIGHT FROM SEARCH ===== */
-// Script is at bottom of <body> so DOM is already ready — no DOMContentLoaded needed
 (function () {
   const params    = new URLSearchParams(window.location.search);
   const highlight = params.get('highlight');
+  const query     = params.get('q');
 
   if (highlight) {
     const card = document.getElementById(highlight);
     if (card) {
-      // Switch to the correct pagination page before anything else
-      const hfPage = parseInt(card.dataset.hfPage);
-      const tapPage = parseInt(card.dataset.tapPage);
-      if (hfPage) {
-        showPage(hfPage);
-        showTapPage(1);
-      } else if (tapPage) {
-        showTapPage(tapPage);
-        showPage(1);
-      } else {
-        showPage(1);
-        showTapPage(1);
-      }
+      SECTIONS.forEach(s => {
+        const idx = s.cards.indexOf(card);
+        showPage(s, idx !== -1 ? Math.floor(idx / s.perPage) + 1 : 1);
+      });
 
-      // Ensure all category sections are visible
       cats.forEach(c => c.style.display = '');
+      history.replaceState(null, '', window.location.pathname + (window.location.hash || ''));
 
-      // Remove ?highlight= from URL so refresh doesn't re-trigger
-      const cleanUrl = window.location.pathname + (window.location.hash || '');
-      history.replaceState(null, '', cleanUrl);
-
-      // Scroll + highlight after layout settles
       setTimeout(() => {
         card.scrollIntoView({ behavior: 'smooth', block: 'center' });
         card.classList.add('product-card--highlighted');
@@ -132,11 +100,25 @@ tapBtns.forEach(btn => {
     }
   }
 
-  // No highlight — normal init: show page 1
-  showPage(1);
-  showTapPage(1);
+  if (query) {
+    const q = query.toLowerCase().trim();
+    const CATEGORY_MAP = {
+      'health faucet': 'health-faucets', 'health faucets': 'health-faucets',
+      'faucet': 'health-faucets', 'jet spray': 'health-faucets',
+      'overhead shower': 'overhead-showers', 'overhead showers': 'overhead-showers',
+      'rainshower': 'overhead-showers', 'shower': 'overhead-showers',
+      'tap': 'taps', 'taps': 'taps', 'cock': 'taps',
+      'accessory': 'accessories', 'accessories': 'accessories',
+      'shelf': 'accessories', 'hook': 'accessories', 'hose': 'accessories',
+    };
+    const matched = Object.keys(CATEGORY_MAP).find(alias => q.includes(alias));
+    applyFilter(matched ? CATEGORY_MAP[matched] : 'all');
+    history.replaceState(null, '', window.location.pathname);
+    return;
+  }
 
-  // Handle plain hash anchor (e.g. from footer links)
+  resetAll();
+
   const hash = window.location.hash;
   if (hash) {
     setTimeout(() => {

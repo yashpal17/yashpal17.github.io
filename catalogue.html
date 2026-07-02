@@ -1,0 +1,1573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ambav Product Catalogue 2024–25</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 14px; }
+    body {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      font-weight: 300;
+      background: #f0f6fc;
+      color: #0a2342;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── DOWNLOAD BAR (screen only) ── */
+    .dl-topbar {
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      background: #0a2342;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 40px;
+      gap: 16px;
+    }
+    .dl-topbar-brand {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #fff;
+    }
+    .dl-topbar-brand span { color: #0097a7; }
+    .dl-topbar-meta {
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+    }
+    .dl-topbar-right { display: flex; align-items: center; gap: 12px; }
+
+    #dl-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 24px;
+      background: #0097a7;
+      color: #fff;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 2px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    #dl-btn:hover { background: #007b8a; }
+    #dl-btn svg { flex-shrink: 0; }
+
+    .dl-print-hint {
+      font-size: 0.68rem;
+      color: rgba(255,255,255,0.35);
+      letter-spacing: 0.04em;
+    }
+    .dl-print-hint strong { color: rgba(255,255,255,0.6); font-weight: 500; }
+
+    #dl-status {
+      font-size: 0.72rem;
+      color: #0097a7;
+      letter-spacing: 0.06em;
+      min-width: 120px;
+      text-align: right;
+    }
+
+    @media (max-width: 600px) {
+      .dl-topbar { padding: 12px 20px; }
+      .dl-topbar-meta { display: none; }
+    }
+
+    /* ── CATALOGUE WRAPPER ── */
+    .catalogue { max-width: 900px; margin: 0 auto; padding: 40px 24px 80px; }
+
+    /* ── COVER PAGE ── */
+    .cat-cover {
+      background: #0a2342;
+      border-radius: 6px;
+      padding: 80px 64px 64px;
+      margin-bottom: 48px;
+      position: relative;
+      overflow: hidden;
+      page-break-after: always;
+    }
+    .cat-cover::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 5px;
+      background: linear-gradient(90deg, #0097a7, #4dd0e1, #0097a7);
+    }
+    .cat-cover-watermark {
+      position: absolute;
+      right: -40px; bottom: -60px;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 22rem;
+      font-weight: 700;
+      letter-spacing: -0.05em;
+      color: rgba(255,255,255,0.03);
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+    }
+    .cat-cover-tag {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #0097a7;
+      border: 1px solid rgba(0,151,167,0.4);
+      padding: 5px 14px;
+      border-radius: 1px;
+      margin-bottom: 40px;
+    }
+    .cat-cover-logo {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 5.5rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #fff;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .cat-cover-tagline {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.5rem;
+      font-weight: 300;
+      font-style: italic;
+      color: rgba(255,255,255,0.5);
+      letter-spacing: 0.04em;
+      margin-bottom: 48px;
+    }
+    .cat-cover-divider {
+      width: 60px;
+      height: 2px;
+      background: #0097a7;
+      margin-bottom: 48px;
+    }
+    .cat-cover-stats {
+      display: flex;
+      gap: 48px;
+      margin-bottom: 64px;
+    }
+    .cat-cover-stat-num {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 2.8rem;
+      font-weight: 600;
+      color: #fff;
+      line-height: 1;
+    }
+    .cat-cover-stat-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      margin-top: 4px;
+    }
+    .cat-cover-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 24px;
+    }
+    .cat-cover-contact {
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
+      color: rgba(255,255,255,0.4);
+      line-height: 1.8;
+    }
+    .cat-cover-contact a { color: rgba(255,255,255,0.6); }
+    .cat-cover-year {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 3rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.08);
+      line-height: 1;
+    }
+    .cat-cover-badges {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+    .cat-cover-badge {
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.55);
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 5px 12px;
+      border-radius: 2px;
+    }
+
+    /* ── SECTION DIVIDER ── */
+    .cat-section {
+      margin-bottom: 48px;
+      page-break-before: always;
+    }
+    .cat-section:first-of-type { page-break-before: avoid; }
+
+    .cat-section-header {
+      background: #0a2342;
+      border-radius: 6px 6px 0 0;
+      padding: 36px 40px 32px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .cat-section-header::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 3px;
+      background: #0097a7;
+    }
+    .cat-section-num {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 6rem;
+      font-weight: 700;
+      color: rgba(255,255,255,0.05);
+      line-height: 1;
+      position: absolute;
+      right: 24px; top: 50%; transform: translateY(-50%);
+    }
+    .cat-section-left {}
+    .cat-section-label {
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #0097a7;
+      margin-bottom: 6px;
+    }
+    .cat-section-title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 2.2rem;
+      font-weight: 600;
+      color: #fff;
+      letter-spacing: 0.02em;
+      line-height: 1.1;
+    }
+    .cat-section-desc {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: 0.04em;
+      margin-top: 6px;
+      max-width: 460px;
+    }
+
+    /* ── PRODUCT GRID ── */
+    .cat-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      background: #d0dce8;
+      border: 2px solid #d0dce8;
+      border-top: none;
+      border-radius: 0 0 6px 6px;
+      overflow: hidden;
+    }
+    @media (max-width: 600px) {
+      .cat-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* ── PRODUCT CARD ── */
+    .cat-card {
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+    .cat-card-img-wrap {
+      background: #f7fbff;
+      height: 150px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border-bottom: 1px solid #e8f0f8;
+      flex-shrink: 0;
+    }
+    .cat-card-img-wrap img {
+      max-width: 100%;
+      max-height: 130px;
+      object-fit: contain;
+      display: block;
+    }
+    .cat-card-body {
+      padding: 14px 14px 16px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .cat-card-cat {
+      font-size: 0.6rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #0097a7;
+      margin-bottom: 5px;
+    }
+    .cat-card-name {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.0rem;
+      font-weight: 600;
+      color: #0a2342;
+      line-height: 1.2;
+      margin-bottom: 5px;
+    }
+    .cat-card-sub {
+      font-size: 0.65rem;
+      color: #4a6fa5;
+      line-height: 1.4;
+      margin-bottom: 10px;
+      flex: 1;
+    }
+    .cat-card-specs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-top: auto;
+    }
+    .cat-card-spec {
+      font-size: 0.58rem;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      color: #0a2342;
+      background: #f0f6fc;
+      border: 1px solid #d0dce8;
+      padding: 2px 7px;
+      border-radius: 1px;
+    }
+    .cat-card-spec strong {
+      font-weight: 600;
+      color: #4a6fa5;
+    }
+    .cat-card-badge {
+      display: inline-block;
+      font-size: 0.55rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #fff;
+      background: #0097a7;
+      padding: 2px 7px;
+      border-radius: 1px;
+      margin-bottom: 5px;
+      align-self: flex-start;
+    }
+
+    /* ── TABLE OF CONTENTS ── */
+    .cat-toc {
+      background: #fff;
+      border-radius: 6px;
+      padding: 40px;
+      margin-bottom: 40px;
+      border: 1px solid #d0dce8;
+      page-break-after: always;
+    }
+    .cat-toc-title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: #0a2342;
+      margin-bottom: 28px;
+      padding-bottom: 16px;
+      border-bottom: 2px solid #f0f6fc;
+    }
+    .cat-toc-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 0;
+      border-bottom: 1px solid #f0f6fc;
+    }
+    .cat-toc-row:last-child { border-bottom: none; }
+    .cat-toc-left { display: flex; align-items: center; gap: 16px; }
+    .cat-toc-num {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.6rem;
+      font-weight: 300;
+      color: #0097a7;
+      min-width: 32px;
+    }
+    .cat-toc-name {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #0a2342;
+      letter-spacing: 0.02em;
+    }
+    .cat-toc-sub {
+      font-size: 0.7rem;
+      color: #4a6fa5;
+      margin-top: 2px;
+    }
+    .cat-toc-count {
+      font-size: 0.7rem;
+      color: #4a6fa5;
+      background: #f0f6fc;
+      border: 1px solid #d0dce8;
+      padding: 3px 10px;
+      border-radius: 2px;
+    }
+
+    /* ── PRINT STYLES ── */
+    @media print {
+      * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      .dl-topbar { display: none !important; }
+      body { background: #fff; }
+      .catalogue { max-width: 100%; padding: 0; }
+      .cat-cover { border-radius: 0; }
+      .cat-grid { border-radius: 0; }
+      .cat-section-header { border-radius: 0; }
+      .cat-section { page-break-before: always; }
+      .cat-toc { page-break-after: always; border: none; }
+      .cat-card { page-break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Download bar (hidden in print) -->
+  <div class="dl-topbar">
+    <div>
+      <img src="images/ProductImages/AmbavLogo/AmbavLogo.png" alt="Ambav" style="height:32px;width:auto;display:block;" />
+      <div class="dl-topbar-meta">Product Catalogue 2024–25</div>
+    </div>
+    <div class="dl-topbar-right">
+      <a href="catalogue.pdf" download="Ambav-Product-Catalogue-2025.pdf" id="dl-btn">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+        </svg>
+        Download PDF
+      </a>
+    </div>
+  </div>
+
+  <!-- Catalogue -->
+  <div class="catalogue">
+    <div id="cat-content">
+
+      <!-- ── COVER ── -->
+      <div class="cat-cover">
+        <div class="cat-cover-watermark">A</div>
+        <div class="cat-cover-tag">Official Product Catalogue</div>
+        <div class="cat-cover-logo">Ambav</div>
+        <div class="cat-cover-tagline">A drop of trust</div>
+        <div class="cat-cover-divider"></div>
+        <div class="cat-cover-badges">
+          <span class="cat-cover-badge">ISI Certified</span>
+          <span class="cat-cover-badge">Chrome Finish</span>
+          <span class="cat-cover-badge">ABS Body</span>
+          <span class="cat-cover-badge">1 Year Warranty</span>
+          <span class="cat-cover-badge">Since 2005</span>
+        </div>
+        <div class="cat-cover-stats">
+          <div>
+            <div class="cat-cover-stat-num">57+</div>
+            <div class="cat-cover-stat-label">Products</div>
+          </div>
+          <div>
+            <div class="cat-cover-stat-num">4</div>
+            <div class="cat-cover-stat-label">Categories</div>
+          </div>
+          <div>
+            <div class="cat-cover-stat-num">20+</div>
+            <div class="cat-cover-stat-label">Years in Business</div>
+          </div>
+        </div>
+        <div class="cat-cover-footer">
+          <div class="cat-cover-contact">
+            ambav.in &nbsp;·&nbsp; info@ambav.in &nbsp;·&nbsp; +91 87507 72340<br>
+            C 19/5 Naresh Park, Nangloi, New Delhi – 110041
+          </div>
+          <div class="cat-cover-year">2025</div>
+        </div>
+      </div>
+
+      <!-- ── TABLE OF CONTENTS ── -->
+      <div class="cat-toc">
+        <div class="cat-toc-title">Contents</div>
+        <div class="cat-toc-row">
+          <div class="cat-toc-left">
+            <div class="cat-toc-num">01</div>
+            <div>
+              <div class="cat-toc-name">Health Faucets</div>
+              <div class="cat-toc-sub">Jack · Jumbo · Milano · Square · Kelvin · Newton · OHM · Perry · Photon · Solo · Foam · Lepton</div>
+            </div>
+          </div>
+          <div class="cat-toc-count">36 products</div>
+        </div>
+        <div class="cat-toc-row">
+          <div class="cat-toc-left">
+            <div class="cat-toc-num">02</div>
+            <div>
+              <div class="cat-toc-name">Overhead Showers</div>
+              <div class="cat-toc-sub">Bell · Nano · Gamma — ABS rainshowers with 9-inch arm</div>
+            </div>
+          </div>
+          <div class="cat-toc-count">3 products</div>
+        </div>
+        <div class="cat-toc-row">
+          <div class="cat-toc-left">
+            <div class="cat-toc-num">03</div>
+            <div>
+              <div class="cat-toc-name">Taps</div>
+              <div class="cat-toc-sub">Corsa & Classic — Pillar · Bib · Long Body · Angle Cock</div>
+            </div>
+          </div>
+          <div class="cat-toc-count">8 products</div>
+        </div>
+        <div class="cat-toc-row">
+          <div class="cat-toc-left">
+            <div class="cat-toc-num">04</div>
+            <div>
+              <div class="cat-toc-name">Accessories</div>
+              <div class="cat-toc-sub">Shelves · Hooks · SS Braided & PVC Hose Pipes</div>
+            </div>
+          </div>
+          <div class="cat-toc-count">10 products</div>
+        </div>
+      </div>
+
+      <!-- ══════════════════════════════════
+           01 — HEALTH FAUCETS
+      ══════════════════════════════════ -->
+      <div class="cat-section">
+        <div class="cat-section-header">
+          <div class="cat-section-left">
+            <div class="cat-section-label">Category 01</div>
+            <div class="cat-section-title">Health Faucets</div>
+            <div class="cat-section-desc">Handheld jet sprays in chrome and white finish — with SS braided hose sets, without hose, and silicon nozzle variants. ISI certified, ABS body.</div>
+          </div>
+          <div class="cat-section-num">01</div>
+        </div>
+        <div class="cat-grid">
+
+          <!-- ABS Jack with hose -->
+          <div class="cat-card">
+            <div class="cat-card-img-wrap">
+              <img src="images/ProductImages/JackWithHoseAndHook/CLQ_9189%20copy.jpg" alt="ABS Jack Health Faucet" />
+            </div>
+            <div class="cat-card-body">
+              <span class="cat-card-badge">Best Seller</span>
+              <div class="cat-card-name">ABS Jack Health Faucet</div>
+              <div class="cat-card-sub">With SS Braided 1.0m Hose &amp; Hook · Chrome Finish · Pack of 1</div>
+              <div class="cat-card-specs">
+                <span class="cat-card-spec"><strong>Material</strong> ABS + Chrome</span>
+                <span class="cat-card-spec"><strong>Hose</strong> 1m SS Braided</span>
+                <span class="cat-card-spec"><strong>Type</strong> Jet Spray</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- ABS Jack no hose -->
+          <div class="cat-card">
+            <div class="cat-card-img-wrap">
+              <img src="images/ProductImages/JackWithoutHoseAndHook/CLQ_9187%20copy.jpg" alt="ABS Jack Health Faucet" />
+            </div>
+            <div class="cat-card-body">
+              <div class="cat-card-name">ABS Jack Health Faucet</div>
+              <div class="cat-card-sub">Without Shower Tube &amp; Hook · Chrome Finish · Pack of 1</div>
+              <div class="cat-card-specs">
+                <span class="cat-card-spec"><strong>Material</strong> ABS + Chrome</span>
+                <span class="cat-card-spec"><strong>Hose</strong> No</span>
+                <span class="cat-card-spec"><strong>Type</strong> Jet Spray</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Jack with hose -->
+          <div class="cat-card">
+            <div class="cat-card-img-wrap">
+              <img src="images/ProductImages/JackWithHoseAndHook/CLQ_9189%20copy.jpg" alt="Jack Health Faucet" />
+            </div>
+            <div class="cat-card-body">
+              <div class="cat-card-name">Jack Health Faucet</div>
+              <div class="cat-card-sub">With SS Braided 1.0m Hose &amp; Hook · Chrome Finish · Pack of 1</div>
+              <div class="cat-card-specs">
+                <span class="cat-card-spec"><strong>Material</strong> ABS + Chrome</span>
+                <span class="cat-card-spec"><strong>Hose</strong> 1m SS Braided</span>
+                <span class="cat-card-spec"><strong>Type</strong> Jet Spray</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Jack no hose -->
+          <div class="cat-card">
+            <div class="cat-card-img-wrap">
+              <img src="images/ProductImages/JackWithoutHoseAndHook/CLQ_9187%20copy.jpg" alt="Jack Health Faucet" />
+            </div>
+            <div class="cat-card-body">
+              <div class="cat-card-name">Jack Health Faucet</div>
+              <div class="cat-card-sub">Without Shower Tube &amp; Hook · Chrome Finish · Pack of 1</div>
+              <div class="cat-card-specs">
+                <span class="cat-card-spec"><strong>Material</strong> ABS + Chrome</span>
+                <span class="cat-card-spec"><strong>Hose</strong> No</span>
+                <span class="cat-card-spec"><strong>Type</strong> Jet Spray</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Jack Nozzle with hose -->
+          <div class="cat-card">
+            <div class="cat-card-img-wrap">
+              <img src="images/ProductImages/JackNozzleWithHoseAndHook/CLQ_9186%20copy.jpg" alt="Jack Nozzle Health Faucet" />
+            </div>
+            <div class="cat-card-body">
+              <div class="cat-card-name">Jack Nozzle Health Faucet</div>
+              <div class="cat-card-sub">With SS Braided 1.0m Hose &amp; Hook · Chrome Finish · Pack of 1</div>
+              <div class="cat-card-specs">
+                <span class="cat-card-spec"><strong>Material</strong> ABS + Chrome</span>
+                <span class="cat-card-spec"><strong>Hose</strong> 1m SS Braided</span>
+                <span class="cat-card-spec"><strong>Type</strong> Jet Spray</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Jack Nozzle no hose -->
+          <div class="cat-card">
+            <div class="cat-card-img-wrap">
+              <img src="images/ProductImages/JackNozzleWithoutHoseAndHook/CLQ_9184%20copy.jpg" alt="Jack Nozzle Health Faucet" />
+            </div>
+            <div class="cat-card-body">
+              <div class="cat-card-name">Jack Nozzle Health Faucet</div>
+              <div class="cat-card-sub">Without Shower Tube &amp; Hook · Chrome Finish · Pack of 1</div>
+              <div class="cat-card-specs">
+                <span class="cat-card-spec"><strong>Material</strong> ABS + Chrome</span>
+                <span class="cat-card-spec"><strong>Hose</strong> No</span>
+                <span class="cat-card-spec"><strong>Type</strong> Jet Spray</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- ABS Plain White with PVC hose -->
+          <div class="cat-card">
+            <div class="cat-card-img-wrap">
+              <img src="images/ProductImages/Jack%20white%20/CLQ_9551%20copy.jpg" alt="ABS Plain White Health Faucet" />
+            </div>
+            <div class="cat-card-body">
+              <div class="cat-card-name">ABS Plain White Health Faucet</div>
+              <div class="cat-card-sub">With PVC 1.0m Hose &amp; Hook · White Colour · Pack of 1</div>
+              <div class="cat-card-specs">
+                <span class="cat-card-spec"><strong>Material</strong> ABS</span>
+                <span class="cat-card-spec"><strong>Hose</strong> 1m PVC</span>
+                <span class="cat-card-spec"><strong>Finish</strong> White</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- ABS Plain White no hose -->
+          <div class="cat-card">
+            <div class="cat-card-img-wrap">
+              <img src="images/ProductImages/Jack%20white%20/CLQ_9551%20copy.jpg" alt="ABS Plain White Health Faucet" />
+            </div>
+            <div class="cat-card-body">
+              <div class="cat-card-name">ABS Plain White Health Faucet</div>
+              <div class="cat-card-sub">Without Shower Tube &amp; Hook · White Colour · Pack of 1</div>
+              <div class="cat-card-specs">
+                <span class="cat-card-spec"><strong>Material</strong> ABS</span>
+                <span class="cat-card-spec"><strong>Hose</strong> No</span>
+                <span class="cat-card-spec"><strong>Finish</strong> White</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Foam with hose -->
+          <div class="cat-card">
+            <div class="cat-card-img-wrap">
+              <img src="images/products/hf_jack.jpg" alt="Foam Health Faucet" />
+            </div>
+            <div class="cat-card-body">
+              <div class="cat-card-name">Foam Health Faucet</div>
+              <div class="cat-card-sub">With SS Grade 1.0m Hose &amp; Wall Hook · Chrome Finish · Pack of 1</div>
+              <div class="cat-card-specs">
+                <span class="cat-card-spec"><strong>Material</strong> ABS + Chrome</span>
+                <span class="cat-card-spec"><strong>Hose</strong> 1m SS Grade</span>
+                <span class="cat-card-spec"><strong>Type</strong> Foam Spray</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Foam no hose -->
+          <div class="cat-card">
+            <div class="cat-card-img-wrap">
+              <img src="images/products/hf_jack.jpg" alt="Foam Health Faucet" />
+            </div>
+            <div class="cat-card-body">
+              <div class="cat-card-name">Foam Health Faucet</div>
+              <div class="cat-card-sub">Without Shower Tube &amp; Hook · Chrome Finish · Pack of 1</div>
+              <div class="cat-card-specs">
+                <span class="cat-card-spec"><strong>Material</strong> ABS + Chrome</span>
+                <span class="cat-card-spec"><strong>Hose</strong> No</span>
+                <span class="cat-card-spec"><strong>Type</strong> Foam Spray</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Jumbo with hose -->
+          <div class="cat-card">
+            <div class="cat-card-img-wrap">
+              <img src="images/ProductImages/JumboWithHoseAndHook/CLQ_9170%20copy.jpg" alt="Jumbo Health Faucet" />
+            </div>
+            <div class="cat-card-body">
+              <div class="cat-card-name">Jumbo Health Faucet</div>
+              <div class="cat-card-sub">With SS Braided 1.0m Hose &amp; Hook · Chrome Finish · Pack of 1</div>
+              <div class="cat-card-specs">
+                <span class="cat-card-spec"><strong>Material</strong> ABS + Chrome</span>
+                <span class="cat-card-spec"><strong>Hose</strong> 1m SS Braided</span>
+                <span class="cat-card-spec"><strong>Type</strong> Jet Spray</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Jumbo no hose -->
+          <div class="cat-card">
+            <div class="cat-card-img-wrap">
+              <img src="images/ProductImages/JumboWithoutHoseAndHook/CLQ_9167%20copy.jpg" alt="Jumbo Health Faucet" />
+            </div>
+            <div class="cat-card-body">
+              <div class="cat-card-name">Jumbo Health Faucet</div>
+              <div class="cat-card-sub">Without Shower Tube &amp; Hook · Chrome Finish · Pack of 1</div>
+              <div class="cat-card-specs">
+                <span class="cat-card-spec"><strong>Material</strong> ABS + Chrome</span>
+                <span class="cat-card-spec"><strong>Hose</strong> No</span>
+                <span class="cat-card-spec"><strong>Type</strong> Jet Spray</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Jumbo Nozzle with hose -->
+          <div class="cat-card">
+            <div class="cat-card-img-wrap">
+              <img src="images/ProductImages/JumboNozzleWithHoseAndHook/CLQ_9202%20copy.jpg" alt="Jumbo Nozzle Health Faucet" />
+            </div>
+            <div class="cat-card-body">
+              <div class="cat-card-name">Jumbo Nozzle Health Faucet</div>
+              <div class="cat-card-sub">With SS Braided 1.0m Hose &amp; Hook · Chrome Finish · Pack of 1</div>
+              <div class="cat-card-specs">
+                <span class="cat-card-spec"><strong>Material</strong> ABS + Chrome</span>
+                <span class="cat-card-spec"><strong>Hose</strong> 1m SS Braided</span>
+                <span class="cat-card-spec"><strong>Type</strong> Jet Spray</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Jumbo Nozzle no hose -->
+          <div class="cat-card">
+            <div class="cat-card-img-wrap">
+              <img src="images/ProductImages/JumboNozzleWithoutHoseAndHook/Jumbo%20nozzle.jpg" alt="Jumbo Nozzle Health Faucet" />
+            </div>
+            <div class="cat-card-body">
+              <div class="cat-card-name">Jumbo Nozzle Health Faucet</div>
+              <div class="cat-card-sub">Without Shower Tube &amp; Hook · Chrome Finish · Pack of 1</div>
+              <div class="cat-card-specs">
+                <span class="cat-card-spec"><strong>Material</strong> ABS + Chrome</span>
+                <span class="cat-card-spec"><strong>Hose</strong> No</span>
+                <span class="cat-card-spec"><strong>Type</strong> Jet Spray</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Kelvin with silicon nozzle hose -->
+          <div class="cat-card">
+            <div class="cat-card-img-wrap">
+              <img src="images/products/hf_kelvin.jpg" alt="Kelvin Health Faucet" />
+            </div>
+            <div class="cat-card-body">
+              <div class="cat-card-name">Kelvin Health Faucet</div>
+              <div class="cat-card-sub">With SS Braided 1.0m Hose &amp; Hook · Silicon Nozzles · Pack of 1</div>
+              <div class="cat-card-specs">
+                <span class="cat-card-spec"><strong>Material</strong> ABS + Chrome</span>
+                <span class="cat-card-spec"><strong>Hose</strong> 1m SS Braided</span>
+                <span class="cat-card-spec"><strong>Type</strong> Silicon Nozzle</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Kelvin no hose -->
+          <div class="cat-card">
+            <div class="cat-card-img-wrap">
+              <img src="images/products/hf_kelvin.jpg" alt="Kelvin Health Faucet" />
+            </div>
+            <div class="cat-card-body">
+              <div class="cat-card-name">Kelvin Health Faucet</div>
+              <div class="cat-card-sub">Without Shower Tube &amp; Hook · Chrome Finish · Pack of 1</div>
+              <div class="cat-card-specs">
+                <span class="cat-card-spec"><strong>Material</strong> ABS + Chrome</span>
+                <span class="cat-card-spec"><strong>Hose</strong> No</span>
+                <span class="cat-card-spec"><strong>Type</strong> Jet Spray</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Lepton with hose (set1) -->
+          <div class="cat-card">
+            <div class="cat-card-img-wrap">
+              <img src="images/products/hf_jack.jpg" alt="Lepton Health Faucet" />
+            </div>
+            <div class="cat-card-body">
+              <div class="cat-card-name">Lepton Health Faucet</div>
+              <div class="cat-card-sub">ABS · With SS Braided 1.0m Hose &amp; Hook · Chrome Finish · Pack of 1</div>
+              <div class="cat-card-specs">
+                <span class="cat-card-spec"><strong>Material</strong> ABS + Chrome</span>
+                <span class="cat-card-spec"><strong>Hose</strong> 1m SS Braided</span>
+                <span class="cat-card-spec"><strong>Type</strong> Jet Spray</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Lepton with hose (pack1) -->
+          <div class="cat-card">
+            <div class="cat-card-img-wrap">
+              <img src="images/products/hf_jack.jpg" alt="Lepton Health Faucet" />
+            </div>
+            <div class="cat-card-body">
+              <div class="cat-card-name">Lepton Health Faucet</div>
+              <div class="cat-card-sub">With SS Braided 1.0m Hose &amp; Hook · Chrome Finish · Pack of 1</div>
+              <div class="cat-card-specs">
+                <span class="cat-card-spec"><strong>Material</strong> ABS + Chrome</span>
+                <span class="cat-card-spec"><strong>Hose</strong> 1m SS Braided</span>
+                <span class="cat-card-spec"><strong>Type</strong> Jet Spray</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Milano with hose -->
+          <div class="cat-card">
+            <div class="cat-card-img-wrap">
+              <img src="images/ProductImages/MilanoWithHoseAndHook/CLQ_9182%20copy.jpg" alt="Milano Health Faucet" />
+            </div>
+            <div class="cat-card-body">
+              <div class="cat-card-name">Milano Health Faucet</div>
+              <div class="cat-card-sub">With SS Braided 1.0m Hose &amp; Hook · Chrome Finish · Pack of 1</div>
+              <div class="cat-card-specs">
+                <span class="cat-card-spec"><strong>Material</strong> ABS + Chrome</span>
+                <span class="cat-card-spec"><strong>Hose</strong> 1m SS Braided</span>
+                <span class="cat-card-spec"><strong>Type</strong> Jet Spray</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Milano no hose -->
+          <div class="cat-card">
+            <div class="cat-card-img-wrap">
+              <img src="images/ProductImages/MilanoWithoutHoseAndHook/Milano.jpg" alt="Milano Health Faucet" />
+            </div>
+            <div class="cat-card-body">
+              <div class="cat-card-name">Milano Health Faucet</div>
+              <div class="cat-card-sub">Without Shower Tube &amp; Hook · Chrome Finish · Pack of 1</div>
+              <div class="cat-card-specs">
+                <span class="cat-card-spec"><strong>Material</strong> ABS + Chrome</span>
+                <span class="cat-card-spec"><strong>Hose</strong> No</span>
+                <span class="cat-card-spec"><strong>Type</strong> Jet Spray</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Milano Nozzle with hose -->
+          <div class="cat-card">
+            <div class="cat-card-img-wrap">
+              <img src="images/ProductImages/MilanoNozzleWithHoseAndHook/CLQ_9195%20copy.jpg" alt="Milano Nozzle Health Faucet" />
+            </div>
+            <div class="cat-card-body">
+              <div class="cat-card-name">Milano Nozzle Health Faucet</div>
+              <div class="cat-card-sub">With SS Braided 1.0m Hose &amp; Hook · Chrome Finish · Pack of 1</div>
+              <div class="cat-card-specs">
+                <span class="cat-card-spec"><strong>Material</strong> ABS + Chrome</span>
+                <span class="cat-card-spec"><strong>Hose</strong> 1m SS Braided</span>
+                <span class="cat-card-spec"><strong>Type</strong> Jet Spray</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Milano Nozzle no hose -->
+          <div class="cat-card">
+            <div class="cat-card-img-wrap">
+              <img src="images/ProductImages/MilanoNozzleWithoutHoseAndHook/CLQ_9193%20copy.jpg" alt="Milano Nozzle Health Faucet" />
+            </div>
+            <div class="cat-card-body">
+              <div class="cat-card-name">Milano Nozzle Health Faucet</div>
+              <div class="cat-card-sub">Without Shower Tube &amp; Hook · Chrome Finish · Pack of 1</div>
+              <div class="cat-card-specs">
+                <span class="cat-card-spec"><strong>Material</strong> ABS + Chrome</span>
+                <span class="cat-card-spec"><strong>Hose</strong> No</span>
+                <span class="cat-card-spec"><strong>Type</strong> Jet Spray</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Milano White with hose -->
+          <div class="cat-card">
+            <div class="cat-card-img-wrap">
+              <img src="images/ProductImages/MilanoWhiteWithHoseAndHook/CLQ_9546%20copy.jpg" alt="Milano White Health Faucet" />
+            </div>
+            <div class="cat-card-body">
+              <div class="cat-card-name">Milano White Health Faucet</div>
+              <div class="cat-card-sub">With SS Braided 1.0m Hose &amp; Hook · White Colour · Pack of 1</div>
+              <div class="cat-card-specs">
+                <span class="cat-card-spec"><strong>Material</strong> ABS</span>
+                <span class="cat-card-spec"><strong>Hose</strong> 1m SS Braided</span>
+                <span class="cat-card-spec"><strong>Finish</strong> White</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Milano White no hose -->
+          <div class="cat-card">
+            <div class="cat-card-img-wrap">
+              <img src="images/ProductImages/MilanoWhiteWithoutHoseAndHook/CLQ_9547%20copy.jpg" alt="Milano White Health Faucet" />
+            </div>
+            <div class="cat-card-body">
+              <div class="cat-card-name">Milano White Health Faucet</div>
+              <div class="cat-card-sub">Without Shower Tube &amp; Hook · White Colour · Pack of 1</div>
+              <div class="cat-card-specs">
+                <span class="cat-card-spec"><strong>Material</strong> ABS</span>
+                <span class="cat-card-spec"><strong>Hose</strong> No</span>
+                <span class="cat-card-spec"><strong>Finish</strong> White</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Newton with hose -->
+          <div class="cat-card">
+            <div class="cat-card-img-wrap">
+              <img src="images/products/hf_jack.jpg" alt="Newton Health Faucet" />
+            </div>
+            <div class="cat-card-body">
+              <div class="cat-card-name">Newton Health Faucet</div>
+              <div class="cat-card-sub">With SS Braided 1.0m Hose &amp; Hook · Chrome Finish · Pack of 1</div>
+              <div class="cat-card-specs">
+                <span class="cat-card-spec"><strong>Material</strong> ABS + Chrome</span>
+                <span class="cat-card-spec"><strong>Hose</strong> 1m SS Braided</span>
+                <span class="cat-card-spec"><strong>Type</strong> Jet Spray</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Newton no hose -->
+          <div class="cat-card">
+            <div class="cat-card-img-wrap">
+              <img src="images/products/hf_jack.jpg" alt="Newton Health Faucet" />
+            </div>
+            <div class="cat-card-body">
+              <div class="cat-card-name">Newton Health Faucet</div>
+              <div class="cat-card-sub">Without Shower Tube &amp; Hook · Chrome Finish · Pack of 1</div>
+              <div class="cat-card-specs">
+                <span class="cat-card-spec"><strong>Material</strong> ABS + Chrome</span>
+                <span class="cat-card-spec"><strong>Hose</strong> No</span>
+                <span class="cat-card-spec"><strong>Type</strong> Jet Spray</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- OHM with hose -->
+          <div class="cat-card">
+            <div class="cat-card-img-wrap">
+              <img src="images/products/hf_perry.jpg" alt="OHM Health Faucet" />
+            </div>
+            <div class="cat-card-body">
+              <div class="cat-card-name">OHM Health Faucet</div>
+              <div class="cat-card-sub">With SS Braided 1.0m Hose &amp; Hook · Chrome Finish · Pack of 1</div>
+              <div class="cat-card-specs">
+                <span class="cat-card-spec"><strong>Material</strong> ABS + Chrome</span>
+                <span class="cat-card-spec"><strong>Hose</strong> 1m SS Braided</span>
+                <span class="cat-card-spec"><strong>Type</strong> Jet Spray</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- OHM no hose -->
+          <div class="cat-card">
+            <div class="cat-card-img-wrap">
+              <img src="images/products/hf_perry.jpg" alt="OHM Health Faucet" />
+            </div>
+            <div class="cat-card-body">
+              <div class="cat-card-name">OHM Health Faucet</div>
+              <div class="cat-card-sub">Without Shower Tube &amp; Hook · Chrome Finish · Pack of 1</div>
+              <div class="cat-card-specs">
+                <span class="cat-card-spec"><strong>Material</strong> ABS + Chrome</span>
+                <span class="cat-card-spec"><strong>Hose</strong> No</span>
+                <span class="cat-card-spec"><strong>Type</strong> Jet Spray</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Perry Nozzle with hose -->
+          <div class="cat-card">
+            <div class="cat-card-img-wrap">
+              <img src="images/ProductImages/PerryNozzleWithHoseAndHook/aCLQ_9158%20copy.jpg" alt="Perry Nozzle Health Faucet" />
+            </div>
+            <div class="cat-card-body">
+              <div class="cat-card-name">Perry Nozzle Health Faucet</div>
+              <div class="cat-card-sub">With SS Braided 1.0m Hose &amp; Hook · Chrome Finish · Pack of 1</div>
+              <div class="cat-card-specs">
+                <span class="cat-card-spec"><strong>Material</strong> ABS + Chrome</span>
+                <span class="cat-card-spec"><strong>Hose</strong> 1m SS Braided</span>
+                <span class="cat-card-spec"><strong>Type</strong> Jet Spray</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Perry Nozzle no hose -->
+          <div class="cat-card">
+            <div class="cat-card-img-wrap">
+              <img src="images/ProductImages/PerryNozzleWithoutHoseAndHook/CLQ_9163%20copy.jpg" alt="Perry Nozzle Health Faucet" />
+            </div>
+            <div class="cat-card-body">
+              <div class="cat-card-name">Perry Nozzle Health Faucet</div>
+              <div class="cat-card-sub">Without Shower Tube &amp; Hook · Chrome Finish · Pack of 1</div>
+              <div class="cat-card-specs">
+                <span class="cat-card-spec"><strong>Material</strong> ABS + Chrome</span>
+                <span class="cat-card-spec"><strong>Hose</strong> No</span>
+                <span class="cat-card-spec"><strong>Type</strong> Jet Spray</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Photon with hose -->
+          <div class="cat-card">
+            <div class="cat-card-img-wrap">
+              <img src="images/products/hf_photon.jpg" alt="Photon Health Faucet" />
+            </div>
+            <div class="cat-card-body">
+              <div class="cat-card-name">Photon Health Faucet</div>
+              <div class="cat-card-sub">With SS Braided 1.0m Hose &amp; Hook · Chrome Finish · Pack of 1</div>
+              <div class="cat-card-specs">
+                <span class="cat-card-spec"><strong>Material</strong> ABS + Chrome</span>
+                <span class="cat-card-spec"><strong>Hose</strong> 1m SS Braided</span>
+                <span class="cat-card-spec"><strong>Type</strong> Jet Spray</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Photon White with PVC hose -->
+          <div class="cat-card">
+            <div class="cat-card-img-wrap">
+              <img src="images/products/hf_abs_white.jpg" alt="Photon White Health Faucet" />
+            </div>
+            <div class="cat-card-body">
+              <div class="cat-card-name">Photon White Health Faucet</div>
+              <div class="cat-card-sub">With PVC 1.0m Hose &amp; Hook · White Colour · Pack of 1</div>
+              <div class="cat-card-specs">
+                <span class="cat-card-spec"><strong>Material</strong> ABS</span>
+                <span class="cat-card-spec"><strong>Hose</strong> 1m PVC</span>
+                <span class="cat-card-spec"><strong>Finish</strong> White</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Solo Nozzle with hose -->
+          <div class="cat-card">
+            <div class="cat-card-img-wrap">
+              <img src="images/ProductImages/PerryNozzleWithHoseAndHook/aCLQ_9158%20copy.jpg" alt="Solo Nozzle Health Faucet" />
+            </div>
+            <div class="cat-card-body">
+              <div class="cat-card-name">Solo Nozzle Health Faucet</div>
+              <div class="cat-card-sub">With SS Braided 1.0m Hose &amp; Hook · Chrome Finish · Pack of 1</div>
+              <div class="cat-card-specs">
+                <span class="cat-card-spec"><strong>Material</strong> ABS + Chrome</span>
+                <span class="cat-card-spec"><strong>Hose</strong> 1m SS Braided</span>
+                <span class="cat-card-spec"><strong>Type</strong> Jet Spray</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Solo Nozzle no hose -->
+          <div class="cat-card">
+            <div class="cat-card-img-wrap">
+              <img src="images/ProductImages/PerryNozzleWithoutHoseAndHook/CLQ_9163%20copy.jpg" alt="Solo Nozzle Health Faucet" />
+            </div>
+            <div class="cat-card-body">
+              <div class="cat-card-name">Solo Nozzle Health Faucet</div>
+              <div class="cat-card-sub">Without Hose · Silicon Nozzles · Chrome Finish · Pack of 1</div>
+              <div class="cat-card-specs">
+                <span class="cat-card-spec"><strong>Material</strong> ABS + Chrome</span>
+                <span class="cat-card-spec"><strong>Hose</strong> No</span>
+                <span class="cat-card-spec"><strong>Type</strong> Silicon Nozzle</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Square with hose -->
+          <div class="cat-card">
+            <div class="cat-card-img-wrap">
+              <img src="images/ProductImages/SquareWithHoseAndHook/CLQ_9198%20copy.jpg" alt="Square Health Faucet" />
+            </div>
+            <div class="cat-card-body">
+              <div class="cat-card-name">Square Health Faucet</div>
+              <div class="cat-card-sub">With SS Braided 1.0m Hose &amp; Hook · Chrome Finish · Pack of 1</div>
+              <div class="cat-card-specs">
+                <span class="cat-card-spec"><strong>Material</strong> ABS + Chrome</span>
+                <span class="cat-card-spec"><strong>Hose</strong> 1m SS Braided</span>
+                <span class="cat-card-spec"><strong>Type</strong> Jet Spray</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Square no hose -->
+          <div class="cat-card">
+            <div class="cat-card-img-wrap">
+              <img src="images/ProductImages/SquareWithoutHoseAndHook/CLQ_9196%20copy.jpg" alt="Square Health Faucet" />
+            </div>
+            <div class="cat-card-body">
+              <div class="cat-card-name">Square Health Faucet</div>
+              <div class="cat-card-sub">Without Shower Tube &amp; Hook · Chrome Finish · Pack of 1</div>
+              <div class="cat-card-specs">
+                <span class="cat-card-spec"><strong>Material</strong> ABS + Chrome</span>
+                <span class="cat-card-spec"><strong>Hose</strong> No</span>
+                <span class="cat-card-spec"><strong>Type</strong> Jet Spray</span>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /cat-grid HF -->
+      </div><!-- /cat-section HF -->
+
+      <!-- ══════════════════════════════════
+           02 — OVERHEAD SHOWERS
+      ══════════════════════════════════ -->
+      <div class="cat-section">
+        <div class="cat-section-header">
+          <div class="cat-section-left">
+            <div class="cat-section-label">Category 02</div>
+            <div class="cat-section-title">Overhead Showers</div>
+            <div class="cat-section-desc">ABS rainshowers with 9-inch arm &amp; wall flange — Bell, Nano and Gamma in chrome finish.</div>
+          </div>
+          <div class="cat-section-num">02</div>
+        </div>
+        <div class="cat-grid">
+
+          <!-- Bell -->
+          <div class="cat-card">
+            <div class="cat-card-img-wrap">
+              <img src="images/ProductImages/BellOverheadShower/CLQ_9204%20copy.jpg" alt="Bell ABS Overhead Shower" />
+            </div>
+            <div class="cat-card-body">
+              <div class="cat-card-name">Bell ABS Overhead Shower</div>
+              <div class="cat-card-sub">3 Inch Rainshower with 9-inch Arm &amp; Wall Flange · Chrome</div>
+              <div class="cat-card-specs">
+                <span class="cat-card-spec"><strong>Size</strong> 3 Inch</span>
+                <span class="cat-card-spec"><strong>Arm</strong> 9-inch</span>
+                <span class="cat-card-spec"><strong>Material</strong> ABS Chrome</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Nano -->
+          <div class="cat-card">
+            <div class="cat-card-img-wrap">
+              <img src="images/ProductImages/NanoOverheadShower/dCLQ_0983%20copy.jpg" alt="Nano Overhead Shower" />
+            </div>
+            <div class="cat-card-body">
+              <div class="cat-card-name">Nano Overhead Shower</div>
+              <div class="cat-card-sub">4 Inch ABS Chrome Finish with Shower Arm</div>
+              <div class="cat-card-specs">
+                <span class="cat-card-spec"><strong>Size</strong> 4 Inch</span>
+                <span class="cat-card-spec"><strong>Arm</strong> Included</span>
+                <span class="cat-card-spec"><strong>Material</strong> ABS Chrome</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Gamma -->
+          <div class="cat-card">
+            <div class="cat-card-img-wrap">
+              <img src="images/ProductImages/GammaOverheadShower/CLQ_9209%20copy.jpg" alt="Gamma Overhead Shower" />
+            </div>
+            <div class="cat-card-body">
+              <div class="cat-card-name">Gamma Overhead Shower</div>
+              <div class="cat-card-sub">ABS 6×6 Inch Rainshower with 9-inch Arm</div>
+              <div class="cat-card-specs">
+                <span class="cat-card-spec"><strong>Size</strong> 6×6 Inch</span>
+                <span class="cat-card-spec"><strong>Arm</strong> 9-inch</span>
+                <span class="cat-card-spec"><strong>Material</strong> ABS Chrome</span>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /cat-grid OH -->
+      </div><!-- /cat-section OH -->
+
+      <!-- ══════════════════════════════════
+           03 — TAPS
+      ══════════════════════════════════ -->
+      <div class="cat-section">
+        <div class="cat-section-header">
+          <div class="cat-section-left">
+            <div class="cat-section-label">Category 03</div>
+            <div class="cat-section-title">Taps</div>
+            <div class="cat-section-desc">Corsa and Classic ranges — Pillar Cock, Bib Cock, Long Body and Angle Cock. Chrome-finish ABS for bathroom &amp; kitchen.</div>
+          </div>
+          <div class="cat-section-num">03</div>
+        </div>
+        <div class="cat-grid">
+
+          <!-- Corsa Pillar -->
+          <div class="cat-card">
+            <div class="cat-card-img-wrap">
+              <img src="images/ProductImages/PlasticPillarCockCorsaTap/PlasticPillarCockCorsaTap.png" alt="Plastic Pillar Cock Corsa Tap" />
+            </div>
+            <div class="cat-card-body">
+              <div class="cat-card-name">Plastic Pillar Cock Corsa Tap</div>
+              <div class="cat-card-sub">For Bathroom &amp; Kitchen · Chrome Finish</div>
+              <div class="cat-card-specs">
+                <span class="cat-card-spec"><strong>Range</strong> Corsa</span>
+                <span class="cat-card-spec"><strong>Mount</strong> Counter</span>
+                <span class="cat-card-spec"><strong>Material</strong> ABS Chrome</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Corsa Bib -->
+          <div class="cat-card">
+            <div class="cat-card-img-wrap">
+              <img src="images/ProductImages/PlasticBibCockCorsaTap/PlasticBibCockCorsaTap.png" alt="Plastic Bib Cock Corsa Tap" />
+            </div>
+            <div class="cat-card-body">
+              <div class="cat-card-name">Plastic Bib Cock Corsa Tap</div>
+              <div class="cat-card-sub">For Bathroom &amp; Kitchen · Chrome Finish</div>
+              <div class="cat-card-specs">
+                <span class="cat-card-spec"><strong>Range</strong> Corsa</span>
+                <span class="cat-card-spec"><strong>Mount</strong> Wall</span>
+                <span class="cat-card-spec"><strong>Material</strong> ABS Chrome</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Corsa Long Body -->
+          <div class="cat-card">
+            <div class="cat-card-img-wrap">
+              <img src="images/ProductImages/PlasticLongBodyCorsaChromePlated/PlasticLongBodyCorsaChromePlated.png" alt="Long Body Corsa Chrome Tap" />
+            </div>
+            <div class="cat-card-body">
+              <div class="cat-card-name">Long Body Corsa Chrome Tap</div>
+              <div class="cat-card-sub">Wall Mountable · Bathroom &amp; Kitchen Faucet</div>
+              <div class="cat-card-specs">
+                <span class="cat-card-spec"><strong>Range</strong> Corsa</span>
+                <span class="cat-card-spec"><strong>Mount</strong> Wall</span>
+                <span class="cat-card-spec"><strong>Material</strong> ABS Chrome</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Corsa Angle -->
+          <div class="cat-card">
+            <div class="cat-card-img-wrap">
+              <img src="images/ProductImages/PlasticAngleCockCorsaTap/PlasticAngleCockCorsaTap.png" alt="Plastic Angle Cock Corsa Tap" />
+            </div>
+            <div class="cat-card-body">
+              <div class="cat-card-name">Plastic Angle Cock Corsa Tap</div>
+              <div class="cat-card-sub">For Bathroom &amp; Kitchen · Chrome Finish</div>
+              <div class="cat-card-specs">
+                <span class="cat-card-spec"><strong>Range</strong> Corsa</span>
+                <span class="cat-card-spec"><strong>Mount</strong> Under Sink</span>
+                <span class="cat-card-spec"><strong>Material</strong> ABS Chrome</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Classic Pillar -->
+          <div class="cat-card">
+            <div class="cat-card-img-wrap">
+              <img src="images/ProductImages/PlasticPillarCockClassicTap/PlasticPillarCockClassicTap.png" alt="Plastic Pillar Cock Classic Tap" />
+            </div>
+            <div class="cat-card-body">
+              <div class="cat-card-name">Plastic Pillar Cock Classic Tap</div>
+              <div class="cat-card-sub">For Bathroom &amp; Kitchen · Chrome Finish</div>
+              <div class="cat-card-specs">
+                <span class="cat-card-spec"><strong>Range</strong> Classic</span>
+                <span class="cat-card-spec"><strong>Mount</strong> Counter</span>
+                <span class="cat-card-spec"><strong>Material</strong> ABS Chrome</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Classic Bib -->
+          <div class="cat-card">
+            <div class="cat-card-img-wrap">
+              <img src="images/ProductImages/PlasticBibCockClassicTap/PlasticBibCockClassicTap.png" alt="Plastic Bib Cock Classic Tap" />
+            </div>
+            <div class="cat-card-body">
+              <div class="cat-card-name">Plastic Bib Cock Classic Tap</div>
+              <div class="cat-card-sub">For Bathroom &amp; Kitchen · Chrome Finish</div>
+              <div class="cat-card-specs">
+                <span class="cat-card-spec"><strong>Range</strong> Classic</span>
+                <span class="cat-card-spec"><strong>Mount</strong> Wall</span>
+                <span class="cat-card-spec"><strong>Material</strong> ABS Chrome</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Classic Long Body -->
+          <div class="cat-card">
+            <div class="cat-card-img-wrap">
+              <img src="images/ProductImages/PlasticLongBodyClassicTap/PlasticLongBodyClassicTap.png" alt="Plastic Long Body Classic Tap" />
+            </div>
+            <div class="cat-card-body">
+              <div class="cat-card-name">Plastic Long Body Classic Tap</div>
+              <div class="cat-card-sub">For Bathroom &amp; Kitchen · Chrome Finish</div>
+              <div class="cat-card-specs">
+                <span class="cat-card-spec"><strong>Range</strong> Classic</span>
+                <span class="cat-card-spec"><strong>Mount</strong> Wall</span>
+                <span class="cat-card-spec"><strong>Material</strong> ABS Chrome</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Classic Angle -->
+          <div class="cat-card">
+            <div class="cat-card-img-wrap">
+              <img src="images/ProductImages/PlasticAngleCockClassicTap/PlasticAngleCockClassicTap.png" alt="Plastic Angle Cock Classic Tap" />
+            </div>
+            <div class="cat-card-body">
+              <div class="cat-card-name">Plastic Angle Cock Classic Tap</div>
+              <div class="cat-card-sub">For Bathroom &amp; Kitchen · Chrome Finish</div>
+              <div class="cat-card-specs">
+                <span class="cat-card-spec"><strong>Range</strong> Classic</span>
+                <span class="cat-card-spec"><strong>Mount</strong> Under Sink</span>
+                <span class="cat-card-spec"><strong>Material</strong> ABS Chrome</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Filler card to balance the last row -->
+          <div class="cat-card" style="background:#fafcff;"></div>
+
+        </div><!-- /cat-grid Taps -->
+      </div><!-- /cat-section Taps -->
+
+      <!-- ══════════════════════════════════
+           04 — ACCESSORIES
+      ══════════════════════════════════ -->
+      <div class="cat-section">
+        <div class="cat-section-header">
+          <div class="cat-section-left">
+            <div class="cat-section-label">Category 04</div>
+            <div class="cat-section-title">Accessories</div>
+            <div class="cat-section-desc">Multipurpose shelves, wall hooks, and SS braided &amp; PVC hose pipes to complete your bathroom setup.</div>
+          </div>
+          <div class="cat-section-num">04</div>
+        </div>
+        <div class="cat-grid">
+
+          <!-- 3-in-1 Shelf -->
+          <div class="cat-card">
+            <div class="cat-card-img-wrap">
+              <img src="images/ProductImages/Plastic3in1MultipurposeBathroomShelf/Plastic3in1MultipurposeBathroomShelf.png" alt="3-in-1 Bathroom Shelf" />
+            </div>
+            <div class="cat-card-body">
+              <div class="cat-card-name">3-in-1 Multipurpose Bathroom Shelf</div>
+              <div class="cat-card-sub">Soap Case + Tumbler Holder + Toothbrush Holder</div>
+              <div class="cat-card-specs">
+                <span class="cat-card-spec"><strong>Material</strong> Plastic</span>
+                <span class="cat-card-spec"><strong>Slots</strong> 3</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4-in-1 Shelf -->
+          <div class="cat-card">
+            <div class="cat-card-img-wrap">
+              <img src="images/ProductImages/Plastic4in1MultipurposeBathroomShelf/Plastic4in1MultipurposeBathroomShelf.png" alt="4-in-1 Bathroom Shelf" />
+            </div>
+            <div class="cat-card-body">
+              <div class="cat-card-name">4-in-1 Multipurpose Bathroom Shelf</div>
+              <div class="cat-card-sub">Soap Case + Tumbler Holder + Toothbrush Holder</div>
+              <div class="cat-card-specs">
+                <span class="cat-card-spec"><strong>Material</strong> Plastic</span>
+                <span class="cat-card-spec"><strong>Slots</strong> 4</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Shelf Set of 3 -->
+          <div class="cat-card">
+            <div class="cat-card-img-wrap">
+              <img src="images/ProductImages/BathroomShelvesSetOf3/BathroomShelvesSetOf3.png" alt="Bathroom Shelves Set of 3" />
+            </div>
+            <div class="cat-card-body">
+              <div class="cat-card-name">Bathroom Shelves Set of 3</div>
+              <div class="cat-card-sub">8", 10", 12" · For Bathroom, Kitchen &amp; Home Storage</div>
+              <div class="cat-card-specs">
+                <span class="cat-card-spec"><strong>Sizes</strong> 8" / 10" / 12"</span>
+                <span class="cat-card-spec"><strong>Pack</strong> Set of 3</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Classic Hook -->
+          <div class="cat-card">
+            <div class="cat-card-img-wrap">
+              <img src="images/ProductImages/ClassicHook/CLQ_9539%20copy.jpg" alt="Classic Hook" />
+            </div>
+            <div class="cat-card-body">
+              <div class="cat-card-name">Classic Hook</div>
+              <div class="cat-card-sub">Chrome Finish · Wall Mounted · ABS + Chrome</div>
+              <div class="cat-card-specs">
+                <span class="cat-card-spec"><strong>Material</strong> ABS + Chrome</span>
+                <span class="cat-card-spec"><strong>Mount</strong> Wall</span>
+                <span class="cat-card-spec"><strong>Finish</strong> Chrome</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Oval Hook -->
+          <div class="cat-card">
+            <div class="cat-card-img-wrap">
+              <img src="images/ProductImages/OvalHook/CLQ_9543%20copy.jpg" alt="Oval Hook" />
+            </div>
+            <div class="cat-card-body">
+              <div class="cat-card-name">Oval Hook</div>
+              <div class="cat-card-sub">Chrome Finish · Wall Mounted · ABS + Chrome</div>
+              <div class="cat-card-specs">
+                <span class="cat-card-spec"><strong>Material</strong> ABS + Chrome</span>
+                <span class="cat-card-spec"><strong>Mount</strong> Wall</span>
+                <span class="cat-card-spec"><strong>Finish</strong> Chrome</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Round Hook -->
+          <div class="cat-card">
+            <div class="cat-card-img-wrap">
+              <img src="images/ProductImages/RoundHook/roundhookcp.png" alt="Round Hook" />
+            </div>
+            <div class="cat-card-body">
+              <div class="cat-card-name">Round Hook</div>
+              <div class="cat-card-sub">Chrome Finish · Wall Mounted · ABS + Chrome</div>
+              <div class="cat-card-specs">
+                <span class="cat-card-spec"><strong>Material</strong> ABS + Chrome</span>
+                <span class="cat-card-spec"><strong>Mount</strong> Wall</span>
+                <span class="cat-card-spec"><strong>Finish</strong> Chrome</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- PVC Hose 1m -->
+          <div class="cat-card">
+            <div class="cat-card-img-wrap">
+              <img src="images/ProductImages/PVC1MFlexibleHosePipe/PVC1MFlexibleHosePipe.png" alt="PVC Flexible Hose Pipe 1m" />
+            </div>
+            <div class="cat-card-body">
+              <div class="cat-card-name">PVC Flexible Hose Pipe</div>
+              <div class="cat-card-sub">1.0m · PVC</div>
+              <div class="cat-card-specs">
+                <span class="cat-card-spec"><strong>Material</strong> PVC</span>
+                <span class="cat-card-spec"><strong>Length</strong> 1.0m</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- PVC Hose 1.5m -->
+          <div class="cat-card">
+            <div class="cat-card-img-wrap">
+              <img src="images/ProductImages/PVC1Point5MmFlexibleHosePipe/PVC1Point5MmFlexibleHosePipe.png" alt="PVC Flexible Hose Pipe 1.5m" />
+            </div>
+            <div class="cat-card-body">
+              <div class="cat-card-name">PVC Flexible Hose Pipe</div>
+              <div class="cat-card-sub">1.5m · PVC</div>
+              <div class="cat-card-specs">
+                <span class="cat-card-spec"><strong>Material</strong> PVC</span>
+                <span class="cat-card-spec"><strong>Length</strong> 1.5m</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- SS Braided 1m -->
+          <div class="cat-card">
+            <div class="cat-card-img-wrap">
+              <img src="images/ProductImages/SSBraided1MFlexibleHosePipe/SSBraided1MFlexibleHosePipe.png" alt="SS Braided Flexible Hose Pipe 1m" />
+            </div>
+            <div class="cat-card-body">
+              <div class="cat-card-name">SS Braided Flexible Hose Pipe</div>
+              <div class="cat-card-sub">1.0m · Stainless Steel Braided</div>
+              <div class="cat-card-specs">
+                <span class="cat-card-spec"><strong>Material</strong> SS Braided</span>
+                <span class="cat-card-spec"><strong>Length</strong> 1.0m</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- SS Braided 1.5m -->
+          <div class="cat-card">
+            <div class="cat-card-img-wrap">
+              <img src="images/ProductImages/SSBraided1Point5MFlexibleHosePipe/SSBraided1Point5MFlexibleHosePipe.png" alt="SS Braided Flexible Hose Pipe 1.5m" />
+            </div>
+            <div class="cat-card-body">
+              <div class="cat-card-name">SS Braided Flexible Hose Pipe</div>
+              <div class="cat-card-sub">1.5m · Stainless Steel Braided</div>
+              <div class="cat-card-specs">
+                <span class="cat-card-spec"><strong>Material</strong> SS Braided</span>
+                <span class="cat-card-spec"><strong>Length</strong> 1.5m</span>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /cat-grid Accessories -->
+      </div><!-- /cat-section Accessories -->
+
+      <!-- ── BACK COVER / CONTACT ── -->
+      <div class="cat-cover" style="margin-top:48px; margin-bottom:0;">
+        <div class="cat-cover-watermark" style="font-size:14rem; right:-20px; bottom:-30px;">@</div>
+        <div class="cat-cover-tag">Get in Touch</div>
+        <div style="font-family:'Cormorant Garamond',Georgia,serif; font-size:2.8rem; font-weight:600; color:#fff; margin-bottom:8px; line-height:1.1;">
+          Ready to order?<br>We're here to help.
+        </div>
+        <div style="font-size:0.8rem; color:rgba(255,255,255,0.45); max-width:420px; line-height:1.7; margin:24px 0 40px;">
+          For bulk orders, dealer enquiries, or product information, reach out to our team. PAN India delivery available. Wholesale pricing on request.
+        </div>
+        <div class="cat-cover-divider"></div>
+        <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-bottom:40px;">
+          <div>
+            <div style="font-size:0.6rem; letter-spacing:0.14em; text-transform:uppercase; color:#0097a7; margin-bottom:6px;">Website</div>
+            <div style="font-size:0.85rem; color:#fff;">ambav.in</div>
+          </div>
+          <div>
+            <div style="font-size:0.6rem; letter-spacing:0.14em; text-transform:uppercase; color:#0097a7; margin-bottom:6px;">Email</div>
+            <div style="font-size:0.85rem; color:#fff;">info@ambav.in</div>
+            <div style="font-size:0.75rem; color:rgba(255,255,255,0.4);">sales@ambav.in</div>
+          </div>
+          <div>
+            <div style="font-size:0.6rem; letter-spacing:0.14em; text-transform:uppercase; color:#0097a7; margin-bottom:6px;">Phone</div>
+            <div style="font-size:0.85rem; color:#fff;">+91 87507 72340</div>
+            <div style="font-size:0.75rem; color:rgba(255,255,255,0.4);">Mon–Sat, 10 AM – 7 PM</div>
+          </div>
+        </div>
+        <div class="cat-cover-footer">
+          <div class="cat-cover-contact">
+            C 19/5 Naresh Park, Nangloi, New Delhi – 110041<br>
+            Available on Amazon India &nbsp;·&nbsp; ISI Certified &nbsp;·&nbsp; 1 Year Warranty &nbsp;·&nbsp; Since 2005
+          </div>
+          <div class="cat-cover-year" style="font-size:2rem; color:rgba(255,255,255,0.12);">AMBAV</div>
+        </div>
+      </div>
+
+    </div><!-- /#cat-content -->
+  </div><!-- /.catalogue -->
+
+</body>
+</html>
